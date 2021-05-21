@@ -1,0 +1,86 @@
+  <!-- This is the html for ui to dispay addnewhike functionality. Contains all components required-->
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-buttons slot="start" (click)="go_back()">
+      <ion-icon slot="icon-only" mode="md" name="arrow-back-outline"   style="color: #3f3d56;"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Add new Hiking Spot
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list lines="full">
+    <form [formGroup]="AddNewForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Level</ion-label>
+        <ion-input formControlName="level" type="text" required>
+
+          <ion-select formControlName="level" value="easy">
+            <ion-select-option value="easy">Easy</ion-select-option>
+            <ion-select-option value="moderate">Moderate</ion-select-option>
+            <ion-select-option value="hard">Hard</ion-select-option>
+            <ion-select-option value="risk">Risk</ion-select-option>
+          </ion-select>
+
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Distance of Hike</ion-label>
+        <ion-input formControlName="distance" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Starting point</ion-label>
+        <ion-input formControlName="starts" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ending point</ion-label>
+        <ion-input formControlName="ends" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              <img style="width: 100%;height: 200px;" *ngIf="selectedImageSrc != '' && selectedImageSrc != undefined"
+                src="{{selectedImageSrc}}">
+              <img style="width: 100%;height: 200px;"
+                *ngIf="(selectedImageSrc == '' || selectedImageSrc == undefined) && (isEditMode && existingImage != '')"
+                src="{{existingImage}}">
+            </ion-col>
+            <ion-col size="3">
+              <input #file type="file" (change)="onFileSelect($event.target.files)" style="display: none;" />
+              <ion-button ion-button icon-start (click)="file.click()" class="image-upload">
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+                &nbsp;&nbsp;
+                Upload image
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">
+            <ion-label *ngIf="!isEditMode">Add Hiking Spot</ion-label>
+            <ion-label *ngIf="isEditMode">Update Hiking Spot</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

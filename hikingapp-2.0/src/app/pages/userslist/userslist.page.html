@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-buttons slot="start" (click)="go_back()">
+      <ion-icon slot="icon-only" mode="md" name="arrow-back-outline"   style="color: #3f3d56;"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      HikeIreland Users List
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title color="success">
+      <em>List of Users</em>
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+
+  <ion-list>
+  <!-- async unwarp [object] [object] -->
+ 
+  <!-- users.key !== uid: exculeed the logging in  user  -->
+  <div *ngFor="let user of users">
+    <ion-item >
+      <ion-avatar *ngIf="!user.picture" slot="start">
+        <img src="/assets/images/calories.jpg">
+      </ion-avatar>
+      <ion-avatar *ngIf="user.picture" slot="start">
+        <img src="{{user.picture}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{user.name}}</h2>
+        <p>{{user.email}}</p>
+      </ion-label>
+    </ion-item> 
+  </div>
+
+  </ion-list>
+</ion-card-content>
+</ion-card>
+</ion-content>

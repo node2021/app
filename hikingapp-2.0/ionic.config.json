@@ -1,0 +1,8 @@
+{
+  "name": "hikeireland",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,43 @@
+
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-title size="small">News</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="setting"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="primary">
+    <ion-card>
+      <!--<ion-img src="/assets/shapes.svg"></ion-img>-->
+      <ion-card-header>
+        <ion-card-subtitle>HikeIreland News</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Latest News (No Hiking News). 
+        </p>
+        <ion-spinner *ngIf="!articles" name="dots"></ion-spinner>
+      </ion-card-content>
+    </ion-card>
+
+        <ion-card *ngFor="let article of articles">
+          <ion-img src="{{article.urlToImage}}"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{article.title}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {{article.description}}
+            </p>
+            <ion-button ion-button fill="outline" href="{{article.url}}" large>Read full article</ion-button>
+
+          </ion-card-content>
+        </ion-card>
+
+</ion-content>

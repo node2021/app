@@ -1,0 +1,158 @@
+  
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-buttons slot="start" (click)="go_back()">
+      <ion-icon slot="icon-only" mode="md" name="arrow-back-outline"   style="color: #3f3d56;"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Estimated Calories
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  #form="ngForm" >
+  <ion-list lines="full"> 
+    
+<ion-row>
+  <ion-col>
+  <ion-item>
+    
+    <ion-label position="floating" class="testclass">Your Weight</ion-label>
+    <ion-input type="text" [(ngModel)]="weight" name="weight" id="weight"></ion-input>
+  </ion-item> 
+</ion-col>
+
+<ion-col>
+  <ion-item>
+    <ion-label position="floating" class="testclass">Backpack Weight</ion-label>
+    <ion-input type="text" [(ngModel)]="bweight" name="bweight" id="bweight"></ion-input>
+  </ion-item> 
+  </ion-col> 
+</ion-row> 
+  <ion-radio-group name="wu" id="wu"> 
+    <ion-row>
+      <ion-col>
+    <ion-list-header>
+      <ion-label>Weight Measurement</ion-label>
+    </ion-list-header>
+  </ion-col> 
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-item>
+      <ion-label>lbs</ion-label>
+      <ion-radio slot="start" color="success" value="lbs"></ion-radio>
+    </ion-item> 
+  </ion-col>
+
+  <ion-col>
+    <ion-item>
+      <ion-label>kgs</ion-label>
+      <ion-radio slot="start" color="tertiary" value="kgs"></ion-radio>
+    </ion-item> 
+  </ion-col> 
+</ion-row> 
+  </ion-radio-group> 
+  <ion-row>
+    <ion-col>
+  <ion-item> 
+
+    <ion-label position="floating" class="testclass">Hiking Mins</ion-label>
+    <ion-input type="text" [(ngModel)]="hmins" name="hmins" id="hmins"></ion-input>
+
+  </ion-item> 
+</ion-col>
+
+<ion-col>
+  <ion-item>
+
+    <ion-label position="floating" class="testclass">Distance</ion-label>
+    <ion-input type="dist" [(ngModel)]="dist" name="dist" id="hmins"></ion-input>
+   
+  </ion-item> 
+</ion-col> 
+</ion-row> 
+  </ion-list>
+  <ion-radio-group value="Miles">
+    <ion-row>
+      <ion-col>
+    <ion-list-header>
+      <ion-label>Distance Measurement</ion-label>
+    </ion-list-header>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-item>
+      <ion-label>Miles</ion-label>
+      <ion-radio slot="start" color="success" value="Miles"></ion-radio>
+    </ion-item> 
+  </ion-col>
+<ion-col>
+    <ion-item>
+      <ion-label>Kilometers</ion-label>
+      <ion-radio slot="start" color="tertiary" value="Kilometers"></ion-radio>
+    </ion-item> 
+  </ion-col>
+</ion-row>
+  </ion-radio-group> 
+  <ion-radio-group value="cross">
+    <ion-row>
+      <ion-col>
+    <ion-list-header>
+      <ion-label>Types of Hike</ion-label>
+    </ion-list-header>
+  </ion-col>
+  </ion-row>
+  <ion-row> 
+  <ion-col>
+    <ion-item>
+      <ion-label>Cross Country</ion-label>
+      <ion-radio slot="start" color="success" value="cross"></ion-radio>
+    </ion-item> 
+  </ion-col>
+      <ion-col>
+    <ion-item>
+      <ion-label>Up/Down hill</ion-label>
+      <ion-radio slot="start" color="tertiary" value="updown"></ion-radio>
+    </ion-item> 
+  </ion-col> 
+</ion-row> 
+
+<ion-row>
+  <ion-col> 
+   
+    <ion-item>
+      <ion-label>Uphill only</ion-label>
+      <ion-radio slot="start" color="success" value="uponly"></ion-radio>
+    </ion-item> 
+  </ion-col>
+
+  <ion-col>
+    <ion-item>
+      <ion-label>Downhill only</ion-label>
+      <ion-radio slot="start" color="tertiary" value="downonly"></ion-radio>
+    </ion-item> 
+      
+   </ion-col> 
+  </ion-row> 
+  </ion-radio-group>
+  <ion-button expand="block" share="round" color="success" (click)="presentAlertConfirm(form)">Calculate</ion-button>
+    
+  </form>
+</ion-content>
+<script>
+  const button = document.querySelector('ion-button');
+  button.addEventListener('click', handleButtonClick);
+
+  async function handleButtonClick() {
+    const alert = await alertController.create({
+      header: 'Use this lightsaber?',
+      message: 'Do you agree to use this lightsaber to do good across the galaxy?',
+      buttons: ['Disagree', 'Agree']
+    });
+
+    await alert.present();
+  }
+</script>

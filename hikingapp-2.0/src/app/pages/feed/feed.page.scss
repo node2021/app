@@ -1,0 +1,39 @@
+
+
+.header-color{
+    --color: #ffffff;
+    --background: #cf3c4f;
+}
+
+.mapinput_div{
+    position: relative;
+    border-top: 1px dashed orange;
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px;
+    background: #efefef;
+    margin: auto;
+   
+  }
+
+  #map {
+    //height: 30vh;
+    min-height: 100vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+  }
+  
+  .address_input{
+    font-size: small;
+    font-weight: 600;
+    width: 100%;
+    margin: auto;
+    border: 1px solid wheat;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+  

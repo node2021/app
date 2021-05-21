@@ -1,0 +1,19 @@
+.testclass{ font-size: 15px !important; }
+
+.my-custom-class {
+    --background: hsl(258, 67%, 42%);
+  }
+
+  ion-item{
+    --background: #25594e;
+    --color: #fff; 
+}
+
+ion-button{
+  --background: #062f77;
+}
+
+.header-color{
+  --color: #ffffff;
+  --background: #cf3c4f;
+}

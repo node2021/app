@@ -1,0 +1,23 @@
+.scroll-content {
+  background-image: none;
+}
+.close_btn{
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 10px;
+  background: #00000034;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+
+
+#map {
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  border: 1px solid lightgray;
+}

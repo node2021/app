@@ -1,0 +1,50 @@
+ 
+<!--
+  update the profile details of the user.
+  This is available for logged in users to update the password and other information.
+-->
+  
+<ion-header>
+  <ion-toolbar class="header-color">
+    
+      <ion-back-button  slote="start"></ion-back-button>
+    
+    <ion-title>
+      Update Profile
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item class="ion-no-padding" lines="line">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="userService.user.username" readonly></ion-input>
+    </ion-item>    
+
+    <ion-row>
+      <ion-item class="ion-no-padding" lines="none">
+        <ion-label position="floating">Current Password</ion-label>
+        <ion-input #c_pass type="password" [(ngModel)]="current_pass" appShowHideInput></ion-input>          
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item class="ion-no-padding" lines="none">
+        <ion-label position="floating">New Password</ion-label>
+        <ion-input #n_pass type="password" [(ngModel)]="new_pass"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item class="ion-no-padding" lines="none">
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input #con_pass type="password" [(ngModel)]="confirm_pass"></ion-input>
+      </ion-item>
+    </ion-row>    
+  </ion-list>
+
+  <div align="center">
+    <ion-button fill="outline" color="primary" (click)="update()">Update</ion-button>
+  </div>
+</ion-content>

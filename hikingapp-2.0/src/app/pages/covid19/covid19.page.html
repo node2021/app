@@ -1,0 +1,52 @@
+ <!--  This is the HTML ui components to display the covid19 information dispalyed.
+Thd data is fetched from the service provided. -->
+   
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-buttons slot="start" (click)="go_back()">
+      <ion-icon slot="icon-only" mode="md" name="arrow-back-outline"   style="color: #3f3d56;"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+     Covid19 Info
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ireland Coronavirus information</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ireland</ion-card-subtitle>
+      <ion-card-title>Coronavirus cases</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{info?.cases | number}}</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ireland</ion-card-subtitle>
+      <ion-card-title>Deaths</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{info?.deaths | number}}</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ireland</ion-card-subtitle>
+      <ion-card-title>Recovered</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{info?.recovered | number}}</h1>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header style="background-color: red">
+  <ion-toolbar  class="header-color" >
+    <ion-title  > Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="setting" ></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+
+<!-- Toggles in a List -->
+<ion-list>
+  <!-- <ion-item>
+    <ion-label>Subscribe Notifications</ion-label>
+    <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>subscribe News</ion-label>
+    <ion-toggle [(ngModel)]="sausage" disabled="false"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Calories Tracking</ion-label>
+    <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+  </ion-item> -->
+
+  <ion-item (click)="goProfile()">
+    <ion-icon  name="person" slot="start"></ion-icon>
+    <ion-label>Update Profile</ion-label> 
+  </ion-item>
+  
+  <ion-item (click)="logout()">
+    <ion-icon color="danger"  name="log-out" slot="start"></ion-icon>
+    <ion-label color="danger">
+      Logout
+    </ion-label> 
+  </ion-item> 
+</ion-list>  
+</ion-content>

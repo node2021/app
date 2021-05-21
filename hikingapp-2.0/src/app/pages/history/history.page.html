@@ -1,0 +1,52 @@
+  
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-buttons slot="start" (click)="go_back()">
+      <ion-icon slot="icon-only" mode="md" name="arrow-back-outline"   style="color: #3f3d56;"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      History
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="mainContent">
+    <div *ngFor="let item of dummy">
+      <ion-list lines="none">
+        <ion-item>   
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="myaddress?.length>0 && dummy.length==0">
+      <div class="list" *ngFor="let item of myaddress" scrollX="true">
+        <div style="width: 100%;" (click)="open_map(item)">
+          <p class="address">{{ item.address}}</p>
+          <p class="lat_p">{{item.lat + ", " +item.lng }} </p>
+          <p class="date_p">{{item.timestamp| date:'long' }} </p>
+       </div>
+        <ion-icon color="danger" class="trash_icon" (click)="del(item)" name="trash-outline">
+        </ion-icon>
+      </div>
+
+      
+    </div>
+
+    <div class="noData"  *ngIf="myaddress?.length==0 && dummy.length==0">
+      There is no saved address.
+    </div>
+</div>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar class="header-color" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- This is used to facilitate the user to track the journey. 
+user is provided with button to start and stop the journey. 
+Latitute and Longitudes are captured and saved into firestore.-->
+<ion-content>
+ 
+  <div class="mapinput_div" >
+    <div style="display: flex;    margin: 10px 0px;position: relative;  margin-bottom: 0px;">
+      <input type="text" [(ngModel)]="address" class="address_input" #placesRef="ngx-places" ngx-google-places-autocomplete  [options]="{componentRestrictions: { country: 'IE' }}"  (onAddressChange)="handleAddressChange($event)" />  
+      <ion-icon *ngIf="address!=''" name="close-circle" style="position: absolute;    top: 7px; right:2%;" (click)="address=''"></ion-icon>  
+    </div>
+     <div style=" text-align: center;  background: black;  opacity: 0.8;  color: white;  font-size: small;    padding: 2px;">{{ this.lat + " ,  " + this.lng}} </div>
+
+    <div #map id="map">      
+    </div>
+    <ion-fab-button (click)="geolocateMe()" color="danger" style="    width: 40px;   height: 40px; left: 7vw;  position: absolute;   top: 85px;">
+      <ion-icon name="locate"></ion-icon>
+    </ion-fab-button>
+  </div>
+
+</ion-content>
+<ion-footer *ngIf="user">
+  <ion-button expand="block" (click)="save()" [disabled]="!saveflag">
+    <ion-icon name="locate" slot="start"></ion-icon>
+    Save
+  </ion-button>
+</ion-footer>

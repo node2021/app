@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-title> Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="setting"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content id='hotspots' [scrollEvents]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addNewHikingPlace()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <br>
+  <br>
+  <ion-card *ngFor="let item of caloriesList">
+    <ion-card-header>
+      <ion-row>
+        <ion-col size="10">
+          <ion-card-subtitle>Level: {{item.data.level}}</ion-card-subtitle>
+          <ion-card-title style="font-size: larger;">{{item.data.name}}</ion-card-title>
+        </ion-col>
+        <ion-col size="2">
+          <a class="favorite" (click)="markAsFavorite(item.key, item.data.isFav)">
+            <ion-icon *ngIf="item.data.isFav == undefined || item.data.isFav == false" name="heart-outline"></ion-icon>
+            <ion-icon *ngIf="item.data.isFav == true" name="heart"></ion-icon>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img *ngIf="item.data.image == ''" src="assets/images/TheCausewayCoast.jpg">
+            <img *ngIf="item.data.image != ''" src="{{item.data.image}}">
+          </ion-thumbnail>
+          <ion-label>
+            <ion-text color="danger">
+              <h3> Distance: {{item.data.distance}} miles</h3>
+            </ion-text>
+            <ion-text color="primary">
+              <h3> Starts: {{item.data.starts}}</h3>
+            </ion-text>
+            <ion-text color="success">
+              <h3> Ends:{{item.data.ends}}</h3>
+            </ion-text>
+          </ion-label>
+          <div style="display: grid;">
+            <ion-button fill="outline"  (click)="updateHikingPlace(item.key)">View</ion-button>
+            <ion-button fill="outline" color="danger" (click)="del(item.key)">Delete</ion-button>
+          </div>       
+
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!-- <ion-content id='hotspots' [scrollEvents]="true"> 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Level: Easy</ion-card-subtitle>
+      <ion-card-title>The Causeway Coat</ion-card-title>
+    </ion-card-header> 
+    <ion-card-content>
+      <ion-list>
+      <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/images/TheCausewayCoast.jpg">
+      </ion-thumbnail>
+      <ion-label> 
+        <ion-text color="danger">
+          <h3> Distance: 4.5 miles</h3>
+        </ion-text> 
+        <ion-text color="primary">
+          <h3> Starts: Giant's Causeway </h3>
+        </ion-text> 
+        <ion-text color="success">
+          <h3> Ends: Dunseverick Castle</h3>
+        </ion-text> 
+      </ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+  </ion-list>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content> -->

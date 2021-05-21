@@ -1,0 +1,218 @@
+<!--
+This contains the menu bars on left side and right side.
+All the menu items are configured in the menu
+-->
+
+
+<ion-app>
+  <ion-split-pane contentId="content">
+    <ion-menu contentId="content" menuId="first" side="start">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>
+            Personalized Features
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" menu="first" type="reveal">
+
+
+            <ion-item routerLink="upload" routerDirection="backward" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Upload
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+
+            <ion-item routerLink="favorites" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="flag-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    My Favourites
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+            
+            <!-- <ion-item routerLink="history" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="bicycle-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Planned Hikings
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-item> -->
+ 
+
+            <ion-item routerLink="history" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="newspaper-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Trip History
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+ 
+
+            <ion-item routerLink="calculator" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="calculator-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Calories Calculator
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+
+    </ion-menu>
+
+    <ion-menu contentId="content" menuId="setting" side="end">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>
+            General Features
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" menu="setting" type="reveal">
+
+            <ion-item routerLink="login" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="key-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Login
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item routerLink="signup" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="log-in-outline"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-label>
+                    Register
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item routerLink="news" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="log-in-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    News/Events
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+
+            <ion-item routerLink="covid19" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="medical-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Covid-19
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+
+            <ion-item routerLink="home/calories" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="home-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    Home
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+            <ion-item-divider>
+              <ion-label>
+                Admin Features
+              </ion-label>
+            </ion-item-divider>
+
+            <ion-item routerLink="userslist" routerDirection="root" routerLinkActive="active-item">
+              <ion-row>
+                <ion-col width-33>
+                  <ion-icon name="people-outline"></ion-icon>
+                </ion-col>
+                <ion-col width-33>
+                  <ion-label>
+                    HikeIreland Users
+                  </ion-label>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-item>
+
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+
+    </ion-menu>
+
+    <ion-router-outlet id="content"></ion-router-outlet>
+
+  </ion-split-pane>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+</ion-app>

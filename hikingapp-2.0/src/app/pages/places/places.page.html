@@ -1,0 +1,34 @@
+  
+<ion-header>
+  <ion-toolbar class="header-color">
+    <ion-title>  Nearby Hiking</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="setting"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mapinput_div" >
+    <div style="display: flex;  width: 100%;  background: #00000014;   padding: 5px;    border-radius: 5px;">
+      <ion-icon color="danger" name="man-outline" style="font-size: 20px;   margin-right: 5px;"></ion-icon>
+      <ion-label style=" font-size: small;  margin: auto;  margin-left: 0px; color: blue;">   {{ this.your_address }}</ion-label>    
+    </div>
+    <div style="display: flex;    margin: 10px 0px;position: relative;">
+      <input type="text" [(ngModel)]="address" class="address_input" #placesRef="ngx-places" ngx-google-places-autocomplete  [options]="{componentRestrictions: { country: 'IE' }}"  (onAddressChange)="handleAddressChange($event)" />  
+      <ion-icon *ngIf="address!=''" name="close-circle" style="position: absolute;    top: 7px; right:2%;" (click)="address=''"></ion-icon>  
+    </div>
+    <div #map id="map">        
+    </div>
+    <div class="info" *ngIf="check_flag()">
+      <p style="margin: 5px;   text-align: right; "> {{ this.distance }}</p>
+      <p style="margin: 5px; text-align: right;"> {{ this.duration}}</p>
+   </div>  
+    <ion-fab-button (click)="geolocateMe()" color="danger" style="    width: 40px;   height: 40px; left: 7vw;  position: absolute;   top: 90px;">
+      <ion-icon name="locate"></ion-icon>
+    </ion-fab-button>
+  </div>
+</ion-content>

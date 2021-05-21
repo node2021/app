@@ -1,0 +1,23 @@
+ 
+ion-slides {
+  height: 200px;
+}
+
+.header-banner{ 
+height:200px;
+min-height:200px;
+background:red;
+}
+
+.header-color{
+--color: #ffffff;
+--background: #cf3c4f;
+}
+
+
+.favorite{
+font-size: 35px;
+float: right;
+cursor: pointer;
+color: deeppink;
+}

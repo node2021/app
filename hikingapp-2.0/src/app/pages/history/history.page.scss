@@ -1,0 +1,58 @@
+.header-color{
+    --color: #ffffff;
+    --background: #cf3c4f;
+}
+.mainContent{
+    padding: 5px 20px;
+}
+.list{
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .scroll-item {
+        flex: 0 0 auto;
+    }
+    .address{
+        font-weight: bold;
+        color: black;
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+        text-transform: capitalize;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .lat_p{
+        color: chocolate;
+        font-size: smaller;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+
+    .date_p{
+        font-size: smaller;
+        margin: 0px;
+        color: grey;
+    }
+
+
+    .trash_icon{
+        margin: auto;
+        font-size: 25px;
+    }
+}
+
+
+.noData{
+    text-align: center;
+    margin-top: 100px;
+    color:gray;
+    font-size: medium;
+    width: 90%;    
+    margin: auto;
+}

@@ -1,0 +1,28 @@
+ion-toggle.toggle-checked {
+    --handle-box-shadow: -4px 0 2px 0 red;
+  }
+
+  ion-toggle {
+    --handle-box-shadow: 4px 0 2px 0 red;
+  }
+
+  ion-toggle.toggle-checked {
+    --handle-border-radius: 4px 14px 14px 4px;
+  }
+
+  ion-toggle {
+    --handle-border-radius: 14px 4px 4px 14px;
+  }
+
+
+  ion-title.large-title {
+    color: purple;
+    font-size: 30px;
+  }
+
+  .header-color{
+    --color: #ffffff;
+    --background: #cf3c4f;
+}
+
+ 
