@@ -44,7 +44,7 @@ export class MapPage implements OnInit {
 
     const mapOptions = {
       zoom: 10,
-      streetViewControl: false,
+      streetViewControl: true,
       zoomControl: true,
       overviewMapControl: false,
       center: location,

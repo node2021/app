@@ -50,7 +50,7 @@ export class PlacesPage {
 
 	 getUserPosition(){
 		var options = { enableHighAccuracy: true  ,timeout: 15000,  maximumAge: 3600};
-	
+		console.log(options);
 		this.geolocation.getCurrentPosition(options).then((resp) => {
 		  if (resp) {
 			console.log('----get position-------', resp);
@@ -206,15 +206,15 @@ export class PlacesPage {
 
 
 	  chanage_route(directionsService,directionsRenderer ) {
-
-		var origin1 = { lat: parseFloat(this.latOri), lng: parseFloat(this.lngOri) };
-		var destinationA =  { lat: parseFloat(this.latDest), lng: parseFloat(this.lngDest) };
-
-
+		  var origin1 = { lat: parseFloat(this.latOri), lng: parseFloat(this.lngOri) };
+		  var destinationA =  { lat: parseFloat(this.latDest), lng: parseFloat(this.lngDest) };
+		  
+		  console.log(directionsRenderer)
+		  console.log(directionsService)
 		  var service = new google.maps.DistanceMatrixService;
 		  var total_distance = 0;
 		  var total_seconds = 0;
-		
+		  
 		  var self=this;
 
 		  service.getDistanceMatrix({
@@ -224,24 +224,24 @@ export class PlacesPage {
 			unitSystem: google.maps.UnitSystem.METRIC,
 			avoidHighways: false,
 			avoidTolls: false
-		  }, function (response, status) {
+		  	}, function (response, status) {
 			if (status !== 'OK') {
 			  alert('Error was: ' + status);
 			} else {
+				console.log(response);
 			  var originList = response.originAddresses;
 			  var destinationList = response.destinationAddresses;
-				
-			  console.log(response);
 
 			  directionsService.route({
 				origin: origin1,
 				destination: destinationA,
-				travelMode: 'WALKING'
+				travelMode: 'WALKING',
+				// unitSystem: google.maps.UnitSystem.METRIC
 			  }, function (response, status) {
-				if (status === 'OK') {
+				if (status == 'OK') {
 					directionsRenderer.setDirections(response);
 				} else {
-				  window.alert('Directions request failed due to ' + status);
+				//   window.alert('Directions request failed due to ' + status);
 				}
 			  });
 	  
@@ -249,6 +249,7 @@ export class PlacesPage {
 			  for (let i = 0; i < originList.length; i++) {
 				let results = response.rows[i].elements;
 				for (let j = 0; j < results.length; j++) {
+					console.log(results[j].duration)
 					total_distance+=results[j].distance.value;	  
 					total_seconds+=results[j].duration.value;	  
 					self.distance=results[j].distance.text;
@@ -266,7 +267,6 @@ export class PlacesPage {
 
 
 	  }
-
 	
 	  getAddress(lat, lng) {
 		const geocoder = new google.maps.Geocoder();
