@@ -15,7 +15,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
-import { CaloriesService } from './services/caloresInfo/calories.service';
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ShareModule } from './share.module';
@@ -58,7 +57,6 @@ import '@ungap/global-this';
     StatusBar,
     SplashScreen,
     UserService,
-    CaloriesService,
     AuthService,
     ImagePicker,
     MediaCapture,

@@ -123,18 +123,18 @@ export class FeedPage {
     ];
 
     const mapOptions = {
-      zoom: 1000,
+      zoom: 10,
       streetViewControl: false,
       zoomControl: true,
       overviewMapControl: false,
-      center: location
-      // center: { lat: -33.860664, lng: 151.208138 }
+      center: location,
+      mapTypeControl: false,        
     };
     
     this.map = new google.maps.Map(mapElement.nativeElement, mapOptions);
-    // var mapType = new google.maps.StyledMapType(style, { name: 'Grayscale' });
-    // this.map.mapTypes.set('Pet', mapType);
-    // this.map.setMapTypeId('Pet');
+    var mapType = new google.maps.StyledMapType(style, { name: 'Grayscale' });
+    this.map.mapTypes.set('Pet', mapType);
+    this.map.setMapTypeId('Pet');
     this.addMarker(location);
 
   }

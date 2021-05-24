@@ -27,8 +27,6 @@ export class UserService {
 	setUser(user: user) {
 		console.log('user service setUser='+user);
 		this.user = user
-		console.log(user);
-		console.log("123"+user.username);
 		this.storage.set('u_data', user);
 	}
 	
@@ -39,9 +37,9 @@ export class UserService {
 	}
 
 	// get the user name of the current user
-	getUsername(){
+	getUsername(): string {
 		console.log('user service getUsername=');
-		return this. storage.get('u_data');
+		return this.user.username
 	}
 
 	// fetch the current user id
