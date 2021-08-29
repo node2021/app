@@ -78,10 +78,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/addnewhike/addnewhike.module').then( m => m.AddnewhikePageModule)
   },
   {
-    path: 'userslist',
-    loadChildren: () => import('./pages/userslist/userslist.module').then( m => m.UserslistPageModule)
-  },
-  {
     path: 'adminchart',
     loadChildren: () => import('./pages/adminchart/adminchart.module').then( m => m.AdminchartPageModule)
   },

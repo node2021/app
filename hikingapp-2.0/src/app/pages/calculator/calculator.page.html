@@ -13,68 +13,59 @@
 <ion-content>
   <form  #form="ngForm" >
   <ion-list lines="full"> 
-    
+  
+<ion-row>
+  <ion-col position="floating" class="testclass">
+      <ion-item>
+        <ion-label>Age</ion-label>
+        <ion-input type="text" [(ngModel)]="age" name="age" id="age"></ion-input>
+      </ion-item>
+    </ion-col>
+</ion-row>
+
 <ion-row>
   <ion-col>
   <ion-item>
     
     <ion-label position="floating" class="testclass">Your Weight</ion-label>
-    <ion-input type="text" [(ngModel)]="weight" name="weight" id="weight"></ion-input>
+    <ion-input type="text" [(ngModel)]="weight"  name="weight" id="weight" value="weight"></ion-input>
   </ion-item> 
 </ion-col>
 
 <ion-col>
   <ion-item>
-    <ion-label position="floating" class="testclass">Backpack Weight</ion-label>
-    <ion-input type="text" [(ngModel)]="bweight" name="bweight" id="bweight"></ion-input>
+    <ion-label position="floating" class="testclass">Your Height</ion-label>
+    <ion-input type="text" [(ngModel)]="height" name="height" id="height" value="height"></ion-input>
   </ion-item> 
-  </ion-col> 
-</ion-row> 
-  <ion-radio-group name="wu" id="wu"> 
-    <ion-row>
-      <ion-col>
-    <ion-list-header>
-      <ion-label>Weight Measurement</ion-label>
-    </ion-list-header>
   </ion-col> 
 </ion-row>
-<ion-row>
-  <ion-col>
-    <ion-item>
-      <ion-label>lbs</ion-label>
-      <ion-radio slot="start" color="success" value="lbs"></ion-radio>
-    </ion-item> 
-  </ion-col>
 
-  <ion-col>
-    <ion-item>
-      <ion-label>kgs</ion-label>
-      <ion-radio slot="start" color="tertiary" value="kgs"></ion-radio>
-    </ion-item> 
-  </ion-col> 
-</ion-row> 
-  </ion-radio-group> 
+<ion-radio-group [(ngModel)]="gender" value="gender" name="gender"> 
   <ion-row>
     <ion-col>
-  <ion-item> 
-
-    <ion-label position="floating" class="testclass">Hiking Mins</ion-label>
-    <ion-input type="text" [(ngModel)]="hmins" name="hmins" id="hmins"></ion-input>
-
+  <ion-list-header>
+    <ion-label>Gender</ion-label>
+  </ion-list-header>
+</ion-col> 
+</ion-row>
+<ion-row>
+<ion-col>
+  <ion-item>
+    <ion-label>Male</ion-label>
+    <ion-radio slot="start" name="gender" color="success" value="male"></ion-radio>
   </ion-item> 
 </ion-col>
 
 <ion-col>
   <ion-item>
-
-    <ion-label position="floating" class="testclass">Distance</ion-label>
-    <ion-input type="dist" [(ngModel)]="dist" name="dist" id="hmins"></ion-input>
-   
+    <ion-label>Female</ion-label>
+    <ion-radio slot="start" name = "gender" color="tertiary" value="female"></ion-radio>
   </ion-item> 
 </ion-col> 
 </ion-row> 
+</ion-radio-group> 
   </ion-list>
-  <ion-radio-group value="Miles">
+  <!-- <ion-radio-group value="Miles">
     <ion-row>
       <ion-col>
     <ion-list-header>
@@ -96,48 +87,29 @@
     </ion-item> 
   </ion-col>
 </ion-row>
-  </ion-radio-group> 
-  <ion-radio-group value="cross">
-    <ion-row>
-      <ion-col>
-    <ion-list-header>
-      <ion-label>Types of Hike</ion-label>
-    </ion-list-header>
-  </ion-col>
+  </ion-radio-group> -->
+  <ion-row>
+    <ion-col>
+        <ion-list-header>
+          <ion-label>Activity</ion-label>
+        </ion-list-header>
+    </ion-col>
   </ion-row>
-  <ion-row> 
-  <ion-col>
-    <ion-item>
-      <ion-label>Cross Country</ion-label>
-      <ion-radio slot="start" color="success" value="cross"></ion-radio>
-    </ion-item> 
-  </ion-col>
-      <ion-col>
-    <ion-item>
-      <ion-label>Up/Down hill</ion-label>
-      <ion-radio slot="start" color="tertiary" value="updown"></ion-radio>
-    </ion-item> 
-  </ion-col> 
-</ion-row> 
-
-<ion-row>
-  <ion-col> 
-   
-    <ion-item>
-      <ion-label>Uphill only</ion-label>
-      <ion-radio slot="start" color="success" value="uponly"></ion-radio>
-    </ion-item> 
-  </ion-col>
-
-  <ion-col>
-    <ion-item>
-      <ion-label>Downhill only</ion-label>
-      <ion-radio slot="start" color="tertiary" value="downonly"></ion-radio>
-    </ion-item> 
-      
-   </ion-col> 
-  </ion-row> 
-  </ion-radio-group>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-select [(ngModel)]="activity" name="activity" class="" interface="action-sheet" >
+          <ion-select-option value="1">Basal Metabolic Rate (BMR)</ion-select-option>
+          <ion-select-option value="1.2">Seddentary: little or no exercise</ion-select-option>
+          <ion-select-option value="1.375">Light: exercise 1-3 times/week</ion-select-option>
+          <ion-select-option value="1.465">Moderate:exercise 4-5 times/week</ion-select-option>
+          <ion-select-option value="1.55">Active: daily exercise or intense exercise 3-4 times/week</ion-select-option>
+          <ion-select-option value="1.725">Very Active: intense exercise 6-7 times/week</ion-select-option>
+          <ion-select-option value="1.9">Extra Active: very intese exercise daily, or physical job</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
   <ion-button expand="block" share="round" color="success" (click)="presentAlertConfirm(form)">Calculate</ion-button>
     
   </form>
@@ -153,6 +125,6 @@
       buttons: ['Disagree', 'Agree']
     });
 
-    await alert.present();
+    // await alert.present();
   }
 </script>
